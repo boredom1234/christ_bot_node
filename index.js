@@ -12,6 +12,7 @@ async function preprocessImage(imagePath) {
         const outputPath = 'preprocessed_image.png';
 
         await sharp(imagePath)
+            .resize(1500,500)
             .sharpen()
             .threshold(230)
             .toFile(outputPath);
@@ -107,7 +108,7 @@ bot.onText(/\/run/, async (msg) => {
         const password = credentials[1];
 
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             defaultViewport: { width: 1059, height: 772 },
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
