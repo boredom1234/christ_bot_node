@@ -66,7 +66,7 @@ async function processCaptchaImage(page, imagePath) {
         }
 
         // Wait for the result to be available
-        await tesseractPage.waitForTimeout(20000); // Adjust the timeout if needed
+        // await tesseractPage.waitForTimeout(20000); // Adjust the timeout if needed
         console.log('Waiting for result...');
 
         // Use the provided CSS selector to find the result element
@@ -117,7 +117,7 @@ bot.onText(/\/run/, async (msg) => {
         const page = await browser.newPage();
         await page.goto('https://kp.christuniversity.in/KnowledgePro/StudentLogin.do', { waitUntil: 'networkidle2' });
 
-        await page.waitForTimeout(15000); 
+        // await page.waitForTimeout(15000); 
         await page.waitForSelector('#username');
         await page.waitForSelector('#password');
 
